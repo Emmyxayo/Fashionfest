@@ -11,171 +11,181 @@
     --purple: #6B0FCC;
     --purple-dark: #4A0A8F;
     --purple-light: #9B3FEF;
-    --purple-bg: #1A003A;
     --red: #E8200A;
-    
     --white: #FFFFFF;
-    --off-white: #F5F0FF;
+    --off-white: #F7F5FF;
+    --light-gray: #EEEBF8;
     --text-dark: #0D0020;
+    --text-mid: #3A2060;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Nunito', sans-serif; background: var(--purple-bg); color: var(--white); overflow-x: hidden; }
+  body { font-family: 'Nunito', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
 
   /* TICKER */
-  .ticker-wrap { background: var(--red); color: var(--white); overflow: hidden; padding: 8px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+  .ticker-wrap { background: var(--purple); color: var(--white); overflow: hidden; padding: 8px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
   .ticker-inner { display: flex; gap: 60px; white-space: nowrap; animation: ticker 26s linear infinite; width: max-content; }
   .ticker-inner span { font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
-  .ticker-inner span::before { content: '✦  '; color: var(--white); }
+  .ticker-inner span::before { content: '✦  '; color: var(--red); }
   @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* NAV */
-  nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(26,0,58,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .nav-logo { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
+  nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(255,255,255,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(107,15,204,0.12); box-shadow: 0 2px 20px rgba(107,15,204,0.08); }
+  .nav-logo { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; color: var(--text-dark); text-decoration: none; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
   .nav-logo img { width: 38px; height: 38px; object-fit: cover; border-radius: 50%; display: block; flex-shrink: 0; }
   .nav-logo span { color: var(--red); }
   .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--red); }
+  .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--purple); }
   .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: 9px 20px; border-radius: 4px; }
+  .nav-cta:hover { color: var(--white) !important; opacity: 0.88; }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-  .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); }
-  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--purple-bg); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+  .hamburger span { display: block; width: 26px; height: 2px; background: var(--text-dark); }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-family: 'Bebas Neue', cursive; font-size: 2.8rem; color: var(--white); text-decoration: none; letter-spacing: 3px; }
-  .mobile-menu a:hover { color: var(--red); }
-  .mobile-close { position: absolute; top: 80px; right: 40px; font-size: 2rem; cursor: pointer; color: var(--white); background: none; border: none; }
+  .mobile-menu a { font-family: 'Bebas Neue', cursive; font-size: 2.8rem; color: var(--text-dark); text-decoration: none; letter-spacing: 3px; }
+  .mobile-menu a:hover { color: var(--purple); }
+  .mobile-close { position: absolute; top: 80px; right: 40px; font-size: 2rem; cursor: pointer; color: var(--text-dark); background: none; border: none; }
 
-  /* HERO */
-  #home { min-height: 100vh; padding-top: 100px; padding-bottom: 100px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 50% 0%, #7B1EE8 0%, var(--purple-bg) 72%); }
+  /* HERO — keep dark/purple with anticipate image */
+  #home { min-height: 100vh; padding-top: 100px; padding-bottom: 100px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 50% 0%, #7B1EE8 0%, #1A003A 72%); }
   .hero-bg-orb { position: absolute; pointer-events: none; border-radius: 50%; }
-  .orb1 { width: 700px; height: 700px; border: 130px solid rgba(255,255,255,0.05); top: -200px; right: -200px; }
+  .orb1 { width: 700px; height: 700px; border: 130px solid rgba(255,255,255,0.04); top: -200px; right: -200px; }
   .orb2 { width: 500px; height: 500px; border: 90px solid rgba(232,32,10,0.07); bottom: -150px; left: -150px; }
   .zigzag { position: absolute; left: 0; right: 0; height: 28px; background: var(--red); clip-path: polygon(0 0,100% 0,100% 55%,98% 100%,96% 55%,94% 100%,92% 55%,90% 100%,88% 55%,86% 100%,84% 55%,82% 100%,80% 55%,78% 100%,76% 55%,74% 100%,72% 55%,70% 100%,68% 55%,66% 100%,64% 55%,62% 100%,60% 55%,58% 100%,56% 55%,54% 100%,52% 55%,50% 100%,48% 55%,46% 100%,44% 55%,42% 100%,40% 55%,38% 100%,36% 55%,34% 100%,32% 55%,30% 100%,28% 55%,26% 100%,24% 55%,22% 100%,20% 55%,18% 100%,16% 55%,14% 100%,12% 55%,10% 100%,8% 55%,6% 100%,4% 55%,2% 100%,0 55%); }
   .zigzag-top { top: 90px; }
   .zigzag-bottom { bottom: 50px; transform: scaleY(-1); }
   .hero-content { text-align: center; position: relative; z-index: 2; padding: 0 24px; max-width: 880px; }
   .hero-badge { display: inline-block; background: var(--red); color: var(--white); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; padding: 6px 18px; border-radius: 2px; margin-bottom: 22px; animation: fadeUp 0.6s ease both; }
-  .hero-title { font-family: 'Bebas Neue', cursive; font-size: clamp(4rem, 13vw, 9.5rem); line-height: 0.9; letter-spacing: 2px; animation: fadeUp 0.7s ease 0.1s both; }
+  .hero-title { font-family: 'Bebas Neue', cursive; font-size: clamp(4rem, 13vw, 9.5rem); line-height: 0.9; letter-spacing: 2px; color: var(--white); animation: fadeUp 0.7s ease 0.1s both; }
   .hero-title .line2 { color: var(--red); display: block; }
-  .hero-title .red { color: var(--red); }
   .hero-sub { font-size: clamp(1rem, 2.4vw, 1.2rem); color: rgba(255,255,255,0.72); margin: 22px auto 36px; max-width: 520px; line-height: 1.65; animation: fadeUp 0.7s ease 0.2s both; }
   .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.7s ease 0.3s both; }
   .hero-anticipate { margin-top: 44px; animation: fadeUp 0.8s ease 0.45s both; position: relative; }
   .hero-anticipate img { width: 100%; max-width: 680px; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.08); display: block; margin: 0 auto; }
   .hero-anticipate::before { content: ''; position: absolute; inset: -8px; border-radius: 14px; background: linear-gradient(135deg, rgba(232,32,10,0.4), rgba(107,15,204,0.4)); filter: blur(20px); z-index: -1; }
-  .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; animation: scrollBounce 2s infinite; }
+  .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); animation: scrollBounce 2s infinite; }
   .scroll-hint span { width: 1px; height: 36px; background: var(--white); }
   @keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
   @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
   /* BUTTONS */
-  .btn { display: inline-block; padding: 13px 30px; font-family: 'Space Mono', monospace; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; border-radius: 4px; cursor: pointer; border: none; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
-  .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.32); }
-  .btn-yellow { background: var(--white); color: var(--purple-dark); }
+  .btn { display: inline-block; padding: 13px 30px; font-family: 'Space Mono', monospace; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; border-radius: 4px; cursor: pointer; border: none; transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.18); }
+  .btn-white { background: var(--white); color: var(--purple-dark); }
   .btn-red { background: var(--red); color: var(--white); }
   .btn-purple { background: var(--purple); color: var(--white); }
-  .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.45); }
-  .btn-outline:hover { border-color: var(--white); }
-  .btn-dark { background: var(--red); color: var(--white); }
+  .btn-outline-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+  .btn-outline-white:hover { border-color: var(--white); }
+  .btn-outline-dark { background: transparent; color: var(--purple-dark); border: 2px solid var(--purple); }
+  .btn-outline-dark:hover { background: var(--purple); color: var(--white); }
 
   /* SECTIONS */
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 96px 32px; }
-  .section-label { font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; color: var(--purple-light); text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: 10px; }
-  .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; letter-spacing: 1px; margin-bottom: 22px; }
-  .section-body { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.78); max-width: 620px; }
+  .section-label { font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: 10px; display: block; }
+  .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; letter-spacing: 1px; margin-bottom: 22px; color: var(--text-dark); }
+  .section-body { font-size: 1.05rem; line-height: 1.75; color: var(--text-mid); max-width: 620px; }
 
-  /* ABOUT */
-  #about { background: var(--purple-dark); }
+  /* ABOUT — white bg */
+  #about { background: var(--white); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-  .about-card { background: var(--purple); border-radius: 8px; padding: 40px; position: relative; overflow: hidden; }
-  .about-card::after { content: '2026'; position: absolute; bottom: -20px; right: -10px; font-family: 'Bebas Neue', cursive; font-size: 8rem; color: rgba(255,255,255,0.04); pointer-events: none; line-height: 1; }
+  .about-card { background: var(--off-white); border: 1px solid rgba(107,15,204,0.1); border-radius: 12px; padding: 40px; position: relative; overflow: hidden; }
+  .about-card::after { content: '2026'; position: absolute; bottom: -20px; right: -10px; font-family: 'Bebas Neue', cursive; font-size: 8rem; color: rgba(107,15,204,0.05); pointer-events: none; line-height: 1; }
   .about-tag { background: var(--red); color: var(--white); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; padding: 4px 12px; display: inline-block; margin-bottom: 16px; border-radius: 2px; }
-  .about-card p { font-size: 1.08rem; line-height: 1.72; color: rgba(255,255,255,0.88); }
-  .about-accent { margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--red); letter-spacing: 2px; }
+  .about-card p { font-size: 1.08rem; line-height: 1.72; color: var(--text-mid); }
+  .about-accent { margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(107,15,204,0.15); font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--purple); letter-spacing: 2px; }
   .why-list { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
-  .why-item { display: flex; gap: 16px; align-items: flex-start; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 18px 22px; transition: background 0.2s, border-color 0.2s; }
-  .why-item:hover { background: rgba(255,255,255,0.09); border-color: rgba(232,32,10,0.5); }
+  .why-item { display: flex; gap: 16px; align-items: flex-start; background: var(--off-white); border: 1px solid rgba(107,15,204,0.1); border-radius: 8px; padding: 18px 22px; transition: background 0.2s, border-color 0.2s, box-shadow 0.2s; }
+  .why-item:hover { border-color: var(--purple); box-shadow: 0 4px 20px rgba(107,15,204,0.1); }
   .why-icon { font-size: 1.4rem; min-width: 34px; }
-  .why-item h4 { font-weight: 900; font-size: 0.92rem; margin-bottom: 3px; }
-  .why-item p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.5; }
+  .why-item h4 { font-weight: 900; font-size: 0.92rem; margin-bottom: 3px; color: var(--text-dark); }
+  .why-item p { font-size: 0.86rem; color: var(--text-mid); line-height: 1.5; }
 
-  /* PILLARS */
+  /* PILLARS — red bg, keep white text */
   #pillars { background: var(--red); }
-  .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 52px; background: rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; }
-  .pillar { background: rgba(255,255,255,0.07); padding: 48px 30px; transition: background 0.2s; }
-  .pillar:hover { background: rgba(255,255,255,0.14); }
-  .pillar-n { font-family: 'Bebas Neue', cursive; font-size: 4.5rem; color: rgba(255,255,255,0.12); line-height: 1; margin-bottom: 10px; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 52px; background: rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; }
+  .pillar { background: rgba(255,255,255,0.08); padding: 48px 30px; transition: background 0.2s; }
+  .pillar:hover { background: rgba(255,255,255,0.15); }
+  .pillar-n { font-family: 'Bebas Neue', cursive; font-size: 4.5rem; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 10px; }
   .pillar h3 { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; letter-spacing: 1px; color: var(--white); margin-bottom: 10px; }
-  .pillar p { font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.62; }
+  .pillar p { font-size: 0.88rem; color: rgba(255,255,255,0.82); line-height: 1.62; }
+  #pillars .section-label { color: rgba(255,255,255,0.65); }
+  #pillars .section-title { color: var(--white); }
 
-  /* VISION */
-  #vision { background: var(--purple-bg); text-align: center; }
-  .vision-q { font-family: 'Bebas Neue', cursive; font-size: clamp(2.2rem, 5.5vw, 4.2rem); line-height: 1.1; max-width: 820px; margin: 0 auto 44px; letter-spacing: 1px; }
-  .vision-q .yl { color: var(--red); }
+  /* VISION — off-white bg */
+  #vision { background: var(--off-white); text-align: center; border-top: 4px solid var(--purple); border-bottom: 4px solid var(--purple); }
+  .vision-q { font-family: 'Bebas Neue', cursive; font-size: clamp(2.2rem, 5.5vw, 4.2rem); line-height: 1.1; max-width: 820px; margin: 0 auto 44px; letter-spacing: 1px; color: var(--text-dark); }
+  .vision-q .yl { color: var(--purple); }
   .vision-q .rd { color: var(--red); }
   .vision-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-  /* EVENTS */
-  #events { background: var(--purple-dark); }
+  /* EVENTS — light gray bg */
+  #events { background: var(--light-gray); }
   .events-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 44px; }
-  .event-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 8px; padding: 26px; display: flex; gap: 18px; align-items: flex-start; position: relative; overflow: hidden; transition: background 0.2s, border-color 0.2s; }
-  .event-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--white); }
+  .event-card { background: var(--white); border: 1px solid rgba(107,15,204,0.1); border-radius: 10px; padding: 26px; display: flex; gap: 18px; align-items: flex-start; position: relative; overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
+  .event-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--purple); }
   .event-card:nth-child(even)::before { background: var(--red); }
-  .event-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(232,32,10,0.35); }
+  .event-card:hover { border-color: var(--purple); box-shadow: 0 8px 30px rgba(107,15,204,0.12); transform: translateY(-2px); }
   .ev-icon { font-size: 1.8rem; min-width: 36px; }
-  .event-card h4 { font-size: 0.96rem; font-weight: 900; margin-bottom: 5px; }
-  .event-card p { font-size: 0.85rem; color: rgba(255,255,255,0.62); line-height: 1.52; }
+  .event-card h4 { font-size: 0.96rem; font-weight: 900; margin-bottom: 5px; color: var(--text-dark); }
+  .event-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.52; }
   .events-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 44px; }
 
-  /* SHOP */
+  /* SHOP — purple bg */
   #shop { background: var(--purple); text-align: center; }
-  .shop-marquee-wrap { overflow: hidden; margin: 44px 0; border-top: 3px solid rgba(255,255,255,0.25); border-bottom: 3px solid rgba(255,255,255,0.25); padding: 18px 0; }
+  .shop-marquee-wrap { overflow: hidden; margin: 44px 0; border-top: 3px solid rgba(255,255,255,0.2); border-bottom: 3px solid rgba(255,255,255,0.2); padding: 18px 0; }
   .shop-marquee { display: flex; gap: 44px; white-space: nowrap; animation: ticker 18s linear infinite; width: max-content; }
   .shop-marquee s { font-family: 'Bebas Neue', cursive; font-size: 2.4rem; color: var(--white); letter-spacing: 2px; text-decoration: none; }
   .shop-marquee .dot { color: var(--red); font-size: 2rem; font-family: 'Bebas Neue', cursive; }
+  #shop .section-label { color: rgba(255,255,255,0.55); }
+  #shop .section-title { color: var(--white); }
+  #shop .section-body { color: rgba(255,255,255,0.72); margin: 0 auto; }
 
-  /* INVOLVED */
-  #involved { background: var(--purple-bg); }
+  /* INVOLVED — white bg */
+  #involved { background: var(--white); }
   .involved-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
-  .inv-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 38px; }
-  .inv-card h3 { font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--red); margin-bottom: 12px; letter-spacing: 1px; }
-  .inv-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 20px; }
+  .inv-card { background: var(--off-white); border: 1px solid rgba(107,15,204,0.12); border-radius: 10px; padding: 38px; transition: box-shadow 0.2s; }
+  .inv-card:hover { box-shadow: 0 8px 32px rgba(107,15,204,0.1); }
+  .inv-card h3 { font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--purple); margin-bottom: 12px; letter-spacing: 1px; }
+  .inv-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 20px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
-  .tag { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.14); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 5px 12px; border-radius: 3px; }
+  .tag { background: var(--white); border: 1px solid rgba(107,15,204,0.2); color: var(--purple-dark); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 5px 12px; border-radius: 3px; }
   .inv-btns { display: flex; gap: 10px; flex-wrap: wrap; }
 
-  /* COMMUNITY */
+  /* COMMUNITY — purple bg */
   #community { background: var(--purple); text-align: center; }
   .comm-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin: 44px 0; }
-  .comm-card { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.14); border-radius: 8px; padding: 30px 18px; transition: transform 0.2s, background 0.2s; }
-  .comm-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.16); }
+  .comm-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 30px 18px; transition: transform 0.2s, background 0.2s; }
+  .comm-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.18); }
   .comm-card .ci { font-size: 2.4rem; margin-bottom: 10px; display: block; }
-  .comm-card h4 { font-weight: 900; font-size: 0.9rem; margin-bottom: 6px; }
-  .comm-card p { font-size: 0.8rem; color: rgba(255,255,255,0.66); line-height: 1.5; }
+  .comm-card h4 { font-weight: 900; font-size: 0.9rem; margin-bottom: 6px; color: var(--white); }
+  .comm-card p { font-size: 0.8rem; color: rgba(255,255,255,0.68); line-height: 1.5; }
   .comm-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  #community .section-label { color: rgba(255,255,255,0.5); }
+  #community .section-title { color: var(--white); }
+  #community .section-body { color: rgba(255,255,255,0.75); }
 
-  /* CONTACT */
-  #contact { background: var(--purple-dark); }
+  /* CONTACT — off-white bg */
+  #contact { background: var(--off-white); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
   .contact-form { display: flex; flex-direction: column; gap: 16px; }
   .fg { display: flex; flex-direction: column; gap: 6px; }
-  .fg label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); }
-  .fg input, .fg textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; padding: 12px 16px; color: var(--white); font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
-  .fg input:focus, .fg textarea:focus { border-color: var(--red); }
+  .fg label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-mid); }
+  .fg input, .fg textarea { background: var(--white); border: 1.5px solid rgba(107,15,204,0.18); border-radius: 6px; padding: 12px 16px; color: var(--text-dark); font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+  .fg input:focus, .fg textarea:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(107,15,204,0.1); }
   .fg textarea { height: 128px; resize: vertical; }
-  .email-hint { font-size: 0.73rem; color: rgba(255,255,255,0.38); transition: color 0.2s; }
+  .email-hint { font-size: 0.73rem; color: rgba(58,32,96,0.5); transition: color 0.2s; }
   .socials { display: flex; flex-direction: column; gap: 10px; margin-top: 30px; }
-  .soc-link { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.68); text-decoration: none; font-size: 0.88rem; font-weight: 700; padding: 13px 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; transition: border-color 0.2s, color 0.2s, background 0.2s; }
-  .soc-link:hover { border-color: var(--red); color: var(--white); background: rgba(232,32,10,0.08); }
-  .form-msg { display: none; padding: 13px; border-radius: 4px; font-size: 0.88rem; font-weight: 700; text-align: center; margin-bottom: 4px; }
-  .form-msg.success { background: rgba(100,220,100,0.14); border: 1px solid rgba(100,220,100,0.28); color: #7dff7d; display: block; }
-  .form-msg.error { background: rgba(255,50,50,0.14); border: 1px solid rgba(255,50,50,0.28); color: #ff8080; display: block; }
+  .soc-link { display: flex; align-items: center; gap: 12px; color: var(--text-mid); text-decoration: none; font-size: 0.88rem; font-weight: 700; padding: 13px 18px; background: var(--white); border: 1.5px solid rgba(107,15,204,0.12); border-radius: 8px; transition: border-color 0.2s, color 0.2s, box-shadow 0.2s; }
+  .soc-link:hover { border-color: var(--purple); color: var(--purple); box-shadow: 0 4px 16px rgba(107,15,204,0.1); }
+  .form-msg { display: none; padding: 13px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; text-align: center; margin-bottom: 4px; }
+  .form-msg.success { background: rgba(100,220,100,0.1); border: 1px solid rgba(100,220,100,0.3); color: #1a7a1a; display: block; }
+  .form-msg.error { background: rgba(232,32,10,0.07); border: 1px solid rgba(232,32,10,0.25); color: var(--red); display: block; }
 
-  /* FOOTER */
-  footer { background: #0D0020; border-top: 1px solid rgba(255,255,255,0.07); padding: 60px 32px 28px; text-align: center; }
-  .f-logo { font-family: 'Bebas Neue', cursive; font-size: 2.6rem; letter-spacing: 3px; margin-bottom: 4px; }
+  /* FOOTER — dark purple */
+  footer { background: #0D0020; border-top: 4px solid var(--red); padding: 60px 32px 28px; text-align: center; }
+  .f-logo { font-family: 'Bebas Neue', cursive; font-size: 2.6rem; letter-spacing: 3px; margin-bottom: 4px; color: var(--white); }
   .f-logo span { color: var(--red); }
   .f-tagline { font-size: 0.72rem; color: rgba(255,255,255,0.35); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 28px; }
   .f-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; list-style: none; margin-bottom: 28px; }
@@ -185,6 +195,31 @@
   .f-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.72rem; color: rgba(255,255,255,0.28); }
   .f-legal a { color: rgba(255,255,255,0.28); text-decoration: none; margin-left: 14px; }
   .f-legal a:hover { color: var(--red); }
+
+  /* GALLERY */
+  #gallery { background: var(--light-gray); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 44px; }
+  .gallery-item { position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 1; cursor: pointer; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .gallery-item:hover img { transform: scale(1.07); }
+  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(107,15,204,0.75) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 16px; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.12em; }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(13,0,32,0.95); z-index: 9999; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 88vw; max-height: 88vh; object-fit: contain; border-radius: 6px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .lb-close { position: absolute; top: 24px; right: 32px; font-size: 2rem; color: var(--white); background: none; border: none; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; }
+  .lb-close:hover { opacity: 1; }
+  .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 3rem; color: var(--white); background: rgba(255,255,255,0.1); border: none; cursor: pointer; padding: 8px 18px; border-radius: 4px; transition: background 0.2s; line-height: 1; }
+  .lb-prev { left: 20px; }
+  .lb-next { right: 20px; }
+  .lb-prev:hover, .lb-next:hover { background: var(--purple); }
+
+  /* WHATSAPP BUTTON */
+  .btn-whatsapp { background: #25D366; color: var(--white); }
+  .btn-whatsapp:hover { background: #1da851; }
 
   /* REVEAL */
   .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -202,6 +237,7 @@
     .pillars-grid { grid-template-columns: 1fr; }
     .comm-grid { grid-template-columns: repeat(2,1fr); }
     .events-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
   }
   @media (max-width: 560px) {
     .section-inner { padding: 68px 18px; }
@@ -234,7 +270,7 @@
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#events">Events</a></li>
-    <li><a href="#shop">Shop</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#involved">Get Involved</a></li>
     <li><a href="#community">Community</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -250,7 +286,7 @@
   <a href="#home" onclick="toggleMenu()">Home</a>
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#events" onclick="toggleMenu()">Events</a>
-  <a href="#shop" onclick="toggleMenu()">Shop</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
   <a href="#involved" onclick="toggleMenu()">Get Involved</a>
   <a href="#community" onclick="toggleMenu()">Community</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
@@ -265,12 +301,12 @@
     <div class="hero-badge">✦ Fashion Fest 2026 — Anticipate ✦</div>
     <h1 class="hero-title">
       Fashioned
-      <span class="line2">By The <span class="red">Creator</span></span>
+      <span class="line2">By The Creator</span>
     </h1>
     <p class="hero-sub">A global movement redefining fashion with modesty, purpose, and divine creativity.</p>
     <div class="hero-btns">
-      <a href="#involved" class="btn btn-yellow">Get Involved</a>
-      <a href="#community" class="btn btn-outline">Join The Movement</a>
+      <a href="#involved" class="btn btn-white">Get Involved</a>
+      <a href="#community" class="btn btn-outline-white">Join The Movement</a>
     </div>
     <div class="hero-anticipate">
       <img src="fashionfest-anticipate.jpg" alt="Fashion Fest 2026 - Anticipate">
@@ -285,8 +321,8 @@
   <div class="section-inner">
     <div class="about-grid">
       <div>
-        <p class="section-label reveal">About Fashion Fest</p>
-        <h2 class="section-title reveal d1">What Is <span style="color:var(--purple-light)">Fashion</span><span style="color:var(--red)">Fest?</span></h2>
+        <span class="section-label reveal">About Fashion Fest</span>
+        <h2 class="section-title reveal d1">What Is <span style="color:var(--purple)">Fashion</span><span style="color:var(--red)">Fest?</span></h2>
         <p class="section-body reveal d2">Fashion Fest is a faith-fueled celebration of modesty, purpose, and creative excellence. We're building a global platform where Christian creatives can shine their light boldly through fashion.</p>
         <div class="why-list reveal d2">
           <div class="why-item"><div class="why-icon">🌍</div><div><h4>Redefining Culture</h4><p>Fashion influences the world — we use it to share God's truth.</p></div></div>
@@ -308,8 +344,8 @@
 <!-- PILLARS -->
 <section id="pillars">
   <div class="section-inner">
-    <p class="section-label reveal" style="color:rgba(255,255,255,0.6)">Our Foundation</p>
-    <h2 class="section-title reveal d1">Our <span style="color:var(--white)">Three</span> Pillars</h2>
+    <span class="section-label reveal">Our Foundation</span>
+    <h2 class="section-title reveal d1">Our Three Pillars</h2>
     <div class="pillars-grid reveal d2">
       <div class="pillar">
         <div class="pillar-n">01</div>
@@ -333,13 +369,13 @@
 <!-- VISION -->
 <section id="vision">
   <div class="section-inner" style="text-align:center">
-    <p class="section-label reveal">Our Vision</p>
+    <span class="section-label reveal">Our Vision</span>
     <h2 class="vision-q reveal d1">
       We're flipping the <span class="yl">fashion script</span> — where Godly values <span class="rd">own the runway</span> and purpose walks with power.
     </h2>
     <div class="vision-btns reveal d2">
-      <a href="#involved" class="btn btn-yellow">Become A Vendor</a>
-      <a href="#involved" class="btn btn-outline">Partner With Us</a>
+      <a href="#involved" class="btn btn-purple">Become A Vendor</a>
+      <a href="#involved" class="btn btn-outline-dark">Partner With Us</a>
       <a href="#events" class="btn btn-red">Buy Tickets</a>
     </div>
   </div>
@@ -348,7 +384,7 @@
 <!-- EVENTS -->
 <section id="events">
   <div class="section-inner">
-    <p class="section-label reveal">Fashion Fest 2026</p>
+    <span class="section-label reveal">Fashion Fest 2026</span>
     <h2 class="section-title reveal d1">A Fashion Experience <span style="color:var(--red)">Like No Other</span></h2>
     <p class="section-body reveal d2">Get ready for a full sensory experience where faith meets fashion and creativity ignites every corner of the room.</p>
     <div class="events-grid reveal d2">
@@ -360,33 +396,42 @@
       <div class="event-card"><div class="ev-icon">🛍️</div><div><h4>Vendor Exhibitions</h4><p>Fashion, lifestyle, and all things faith — explore a curated market of purpose-driven brands and designers.</p></div></div>
     </div>
     <div class="events-ctas reveal">
-      <a href="#" class="btn btn-yellow">View Full Event Schedule</a>
-      <a href="#involved" class="btn btn-outline">Become A Vendor</a>
+      <a href="#" class="btn btn-purple">View Full Event Schedule</a>
+      <a href="#involved" class="btn btn-outline-dark">Become A Vendor</a>
       <a href="#" class="btn btn-red">Buy Tickets</a>
     </div>
   </div>
 </section>
 
-<!-- SHOP -->
-<section id="shop">
+<!-- GALLERY -->
+<section id="gallery">
   <div class="section-inner">
-    <p class="section-label reveal">Exclusive Collection</p>
-    <h2 class="section-title reveal d1">Shop <span style="color:var(--red)">With</span> Us</h2>
-    <p class="section-body reveal d2">Our exclusive collection of modest fashion items is here to help you express your unique style with faith, boldness, and purpose.</p>
-    <div class="shop-marquee-wrap reveal">
-      <div class="shop-marquee">
-        <s>MODEST FASHION</s><span class="dot">✦</span>
-        <s>FAITH-FILLED STYLE</s><span class="dot">✦</span>
-        <s>PURPOSE OVER TRENDS</s><span class="dot">✦</span>
-        <s>SHOP THE COLLECTION</s><span class="dot">✦</span>
-        <s>MODEST FASHION</s><span class="dot">✦</span>
-        <s>FAITH-FILLED STYLE</s><span class="dot">✦</span>
-        <s>PURPOSE OVER TRENDS</s><span class="dot">✦</span>
-        <s>SHOP THE COLLECTION</s><span class="dot">✦</span>
-      </div>
+    <span class="section-label reveal">Our Moments</span>
+    <h2 class="section-title reveal d1">Fashion Fest <span style="color:var(--red)">In Pictures</span></h2>
+    <p class="section-body reveal d2">A glimpse into the creativity, faith, and excellence that defines Fashion Fest. Every frame tells a story of purpose walking with power.</p>
+    <div class="gallery-grid reveal d2">
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.19 PM.jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.20 PM (1).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.20 PM (2).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.20 PM.jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.21 PM (1).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.21 PM (2).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.21 PM (3).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.21 PM.jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.24.23 PM.jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.28.00 PM (1).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.28.00 PM (2).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.28.00 PM.jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.28.01 PM (1).jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
+      <div class="gallery-item"><img src="WhatsApp Image 2026-05-06 at 1.28.01 PM.jpg" alt="Fashion Fest Gallery" loading="lazy"><div class="gallery-overlay"><span>Fashion Fest 2026</span></div></div>
     </div>
-    <div style="text-align:center" class="reveal">
-      <a href="#" class="btn btn-dark">Shop Now →</a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lb-close" onclick="closeLightbox()">✕</button>
+      <button class="lb-prev" onclick="event.stopPropagation();moveLight(-1)">&#8249;</button>
+      <img id="lb-img" src="" alt="">
+      <button class="lb-next" onclick="event.stopPropagation();moveLight(1)">&#8250;</button>
     </div>
   </div>
 </section>
@@ -394,7 +439,7 @@
 <!-- GET INVOLVED -->
 <section id="involved">
   <div class="section-inner">
-    <p class="section-label reveal">Join Us</p>
+    <span class="section-label reveal">Join Us</span>
     <h2 class="section-title reveal d1">This Is <span style="color:var(--red)">Your</span> Stage</h2>
     <p class="section-body reveal d2">Are you a designer, model, creative, or sponsor? There's room for you here.</p>
     <div class="involved-grid">
@@ -408,7 +453,7 @@
           <span class="tag">Makeup Artists</span>
           <span class="tag">Writers & Creatives</span>
         </div>
-        <div class="inv-btns"><a href="#contact" class="btn btn-yellow">Apply Now</a></div>
+        <div class="inv-btns"><a href="#contact" class="btn btn-purple">Apply Now</a></div>
       </div>
       <div class="inv-card reveal d1">
         <h3>For Partners</h3>
@@ -420,7 +465,7 @@
         </div>
         <div class="inv-btns">
           <a href="#contact" class="btn btn-red">Become a Partner</a>
-          <a href="#contact" class="btn btn-outline">Sponsor a Creative</a>
+          <a href="#contact" class="btn btn-outline-dark">Sponsor a Creative</a>
         </div>
       </div>
     </div>
@@ -430,7 +475,7 @@
 <!-- COMMUNITY -->
 <section id="community">
   <div class="section-inner" style="text-align:center">
-    <p class="section-label reveal" style="color:rgba(255,255,255,0.55)">Our People</p>
+    <span class="section-label reveal">Our People</span>
     <h2 class="section-title reveal d1">Modest Fashion. <span style="color:var(--red)">Massive</span> Impact.</h2>
     <p class="section-body reveal d2" style="margin:0 auto">We are curating a growing, inclusive community of young believers, creatives, and purpose-driven influencers who choose faith over fame, and modesty over trends.</p>
     <div class="comm-grid">
@@ -440,8 +485,8 @@
       <div class="comm-card reveal d3"><span class="ci">💪</span><h4>Leaders & Parents</h4><p>Community leaders championing faith-rooted values in the next generation.</p></div>
     </div>
     <div class="comm-btns reveal">
-      <a href="https://instagram.com/fashionfest.ng" target="_blank" rel="noopener" class="btn btn-yellow">Follow on Instagram</a>
-      <a href="#contact" class="btn btn-outline">Join our Newsletter</a>
+      <a href="https://instagram.com/fashionfest.ng" target="_blank" rel="noopener" class="btn btn-white">Follow on Instagram</a>
+      <a href="https://wa.me/2347035529377" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp Us</a>
       <a href="#events" class="btn btn-red">Attend Fashion Fest</a>
     </div>
   </div>
@@ -452,8 +497,8 @@
   <div class="section-inner">
     <div class="contact-grid">
       <div>
-        <p class="section-label reveal">Get In Touch</p>
-        <h2 class="section-title reveal d1">Let's Build Something <span style="color:var(--red)">Beautiful</span></h2>
+        <span class="section-label reveal">Get In Touch</span>
+        <h2 class="section-title reveal d1">Let's Build Something <span style="color:var(--purple)">Beautiful</span></h2>
         <p class="section-body reveal d2">Got questions? Want to collaborate? We'd love to hear from you.</p>
         <div class="socials reveal d2">
           <a href="https://instagram.com/fashionfest.ng" target="_blank" rel="noopener" class="soc-link">📸 &nbsp;@fashionfest.ng on Instagram</a>
@@ -478,7 +523,7 @@
             <textarea id="f-msg" name="message" placeholder="Tell us how you'd like to be involved..." required></textarea>
           </div>
           <div class="form-msg" id="formMsg"></div>
-          <button type="submit" class="btn btn-yellow" style="width:100%;justify-content:center">Send Message →</button>
+          <button type="submit" class="btn btn-purple" style="width:100%;text-align:center">Send Message →</button>
         </form>
       </div>
     </div>
@@ -493,7 +538,7 @@
     <li><a href="#about">About Fashion Fest</a></li>
     <li><a href="#events">Events</a></li>
     <li><a href="#involved">Get Involved</a></li>
-    <li><a href="#shop">Shop</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact Us</a></li>
   </ul>
   <hr class="f-divider">
@@ -511,24 +556,46 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  // Scroll reveal
   const revEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   revEls.forEach(el => io.observe(el));
 
-  // Live email check
   function liveEmail(input) {
     const hint = document.getElementById('emailHint');
     const v = input.value;
     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    if (!v) { hint.style.color = ''; hint.textContent = 'Double-check your email — we\'ll reply here.'; return; }
-    hint.style.color = ok ? '#7dff7d' : '#ff8080';
+    if (!v) { hint.style.color = ''; hint.textContent = "Double-check your email — we'll reply here."; return; }
+    hint.style.color = ok ? 'green' : 'var(--red)';
     hint.textContent = ok ? '✓ Looks good!' : '⚠ Please enter a valid email address.';
   }
 
-  // Form submit
+  // Gallery lightbox
+  const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img'));
+  let lbIndex = 0;
+  galleryImgs.forEach((img, i) => {
+    img.parentElement.addEventListener('click', () => { lbIndex = i; openLightbox(img.src); });
+  });
+  function openLightbox(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function moveLight(dir) {
+    lbIndex = (lbIndex + dir + galleryImgs.length) % galleryImgs.length;
+    document.getElementById('lb-img').src = galleryImgs[lbIndex].src;
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') moveLight(1);
+    if (e.key === 'ArrowLeft') moveLight(-1);
+  });
+
   function handleSubmit(e) {
     e.preventDefault();
     const email = document.getElementById('f-email').value;
@@ -543,7 +610,7 @@
     msg.textContent = '✓ Message sent! We\'ll get back to you shortly.';
     e.target.reset();
     document.getElementById('emailHint').style.color = '';
-    document.getElementById('emailHint').textContent = 'Double-check your email — we\'ll reply here.';
+    document.getElementById('emailHint').textContent = "Double-check your email — we'll reply here.";
     setTimeout(() => { msg.className = 'form-msg'; msg.textContent = ''; }, 6000);
   }
 </script>
